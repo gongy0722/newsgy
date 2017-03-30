@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.crc.news.utils.DensityUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +29,7 @@ public class WelcomeActivity extends Activity {
         initView();
         // 初始化数据
         initData();
+        Log.i("crc",this.getResources().getDisplayMetrics().density + "");  // 3.0
     }
 
     private void initView() {
@@ -42,7 +45,8 @@ public class WelcomeActivity extends Activity {
             View view = new View(this);
             view.setBackgroundResource(R.drawable.welcome_point_gray);
             // 代码中所有的数字的单位都是像素 px
-            LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(40,40);
+            int px = DensityUtils.dpi2px(this,10);
+            LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(px,px);
             if(i>0){
                 param.leftMargin = 20; // 20px
             }
