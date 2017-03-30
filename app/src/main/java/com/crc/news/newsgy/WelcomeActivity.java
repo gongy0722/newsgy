@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.List;
 public class WelcomeActivity extends Activity {
 
     private ViewPager viewpager;
+    private LinearLayout ll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +31,24 @@ public class WelcomeActivity extends Activity {
 
     private void initView() {
         viewpager = (ViewPager) findViewById(R.id.viewpager);
+        ll = (LinearLayout) findViewById(R.id.ll);
     }
 
     private void initData() {
+        // 给ViewPager适配Item一般都ImageView
         viewpager.setAdapter(new WelcomePage());
+        // 动态给线性 布局添加三个小灰点
+        for (int i = 0; i < 3; i++) {
+            View view = new View(this);
+            view.setBackgroundResource(R.drawable.welcome_point_gray);
+            // 代码中所有的数字的单位都是像素 px
+            LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(40,40);
+            if(i>0){
+                param.leftMargin = 20; // 20px
+            }
+            view.setLayoutParams(param);
+            ll.addView(view);
+        }
     }
 
     private class WelcomePage extends PagerAdapter {
