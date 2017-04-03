@@ -32,6 +32,13 @@ public class WelcomeActivity extends Activity {
         Log.i("crc",this.getResources().getDisplayMetrics().density + "");  // 3.0
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // 获取红点移动的距离(两个灰点离左边的距离)
+        Log.i("crc","0point:" + ll.getChildAt(0).getLeft() + ",1point:" + ll.getChildAt(1).getLeft());
+    }
+
     private void initView() {
         viewpager = (ViewPager) findViewById(R.id.viewpager);
         ll = (LinearLayout) findViewById(R.id.ll);
@@ -53,6 +60,35 @@ public class WelcomeActivity extends Activity {
             view.setLayoutParams(param);
             ll.addView(view);
         }
+
+        // 注册一个监听页面切换事件
+        viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            /**
+             *
+             * @param position
+             * @param positionOffset
+             * @param positionOffsetPixels
+             */
+
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                Log.i("crc","当前页面的索引:" + position + ",移动距离百分比:" + positionOffset + ",移动的像素:" + positionOffsetPixels);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                Log.i("crc","当前被选择的页面:" + position);
+            }
+
+            /**
+             *
+             * @param state :页面的状态: 0 代表未移动   1: 正在移动   2： 正在切换
+             */
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                Log.i("crc","state:" + state);
+            }
+        });
     }
 
     private class WelcomePage extends PagerAdapter {
