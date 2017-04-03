@@ -3,13 +3,13 @@
     package="com.crc.news.newsgy">
 
     +    <!--
-+         红色按钮的移动实现:
-+             1: 测试页面切换的事件:  viewpager.addOnPageChangeListener
-+             2: 试图在onResume 中计算移动距离(返回是零)
-+             3: 创建MyView测试View的生命周期 (注意重写构造方法)
-+             4: 执行: hierarchyviewer.bat (查询APP 布局)
-+             5: ll.getViewTreeObserver().addOnGlobalLayoutListener (pointMoveWidth = ll.getChildAt(1).getLeft() - ll.getChildAt(0).getLeft();)
-+             6: onPageScrolled 实现移动的功能
+         单击按钮实现:
+             1：最后一张Page其实是一个布局文件(按钮在布局文件中)
+             2: selector修改按钮的背景样式(1一个像素的png图片)
+
+         单击按钮实现跳转:
+             1：按钮跳转到MainActivity
+             2: 创建SharePreUtils工具类操作xml文件
 +    -->
 
     <application
@@ -18,7 +18,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WelcomeActivity"
+        <activity android:name=".IndexActivity"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +26,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".WelcomeActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+        </activity>
+        <activity android:name=".MainActivity"
+            android:label="我是首页"
+            />
     </application>
 
 </manifest>

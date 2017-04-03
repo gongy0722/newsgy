@@ -1,6 +1,7 @@
 package com.crc.news.newsgy;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.crc.news.utils.DensityUtils;
+import com.crc.news.utils.SharedPreUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +39,16 @@ public class WelcomeActivity extends Activity {
         // 初始化数据
         initData();
         Log.i("crc",this.getResources().getDisplayMetrics().density + "");  // 3.0
+    }
+
+    public void startMainActivity(View view){
+        // 设置欢迎页面已经显示过一次
+        SharedPreUtils.setBoolean(this,"welcome_show",true);
+        Intent intent = new Intent(this,MainActivity.class);
+        // 标准模式在同一个APP中所有Activity都在同一个栈
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        // 启动主页面
+        startActivity(intent);
     }
 
     private void initView() {
