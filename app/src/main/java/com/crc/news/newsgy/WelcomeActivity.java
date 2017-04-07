@@ -18,12 +18,24 @@ import android.widget.RelativeLayout;
 import com.crc.news.utils.DensityUtils;
 import com.crc.news.utils.SharedPreUtils;
 
+import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@ContentView(R.layout.activity_welcome)
 public class WelcomeActivity extends Activity {
 
+//    private void initView() {
+//        viewpager = (ViewPager) findViewById(R.id.viewpager);
+//        ll = (LinearLayout) findViewById(R.id.ll);
+//    }
+
+    @ViewInject(R.id.viewpager)
     private ViewPager viewpager;
+    @ViewInject(R.id.ll)
     private LinearLayout ll;
     private int pointMoveWidth = 0;
     private Button btnStart = null;
@@ -33,14 +45,17 @@ public class WelcomeActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
+//        setContentView(R.layout.activity_welcome);
+        // 事件、组件、布局实现IOC的初始化
+        x.view().inject(this);
         // 绑定组件
-        initView();
+//        initView();
         // 初始化数据
         initData();
         Log.i("crc",this.getResources().getDisplayMetrics().density + "");  // 3.0
     }
 
+    // @Event(value = R.id.btn_goMain)
     public void startMainActivity(View view){
         // 设置欢迎页面已经显示过一次
         SharedPreUtils.setBoolean(this,"welcome_show",true);
@@ -49,11 +64,6 @@ public class WelcomeActivity extends Activity {
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         // 启动主页面
         startActivity(intent);
-    }
-
-    private void initView() {
-        viewpager = (ViewPager) findViewById(R.id.viewpager);
-        ll = (LinearLayout) findViewById(R.id.ll);
     }
 
     private void initData() {
@@ -129,7 +139,7 @@ public class WelcomeActivity extends Activity {
         private int[] ids = null;
 
         public WelcomePage(){
-            ids = new int[]{R.drawable.guide_1, R.drawable.guide_2, R.drawable.guide_3};
+            ids = new int[]{R.mipmap.guide_1, R.mipmap.guide_2, R.mipmap.guide_3};
             iList = new ArrayList<View>();
             // 创建一个ListView<View>来存储图片,
             for(int i=0;i<ids.length;i++){

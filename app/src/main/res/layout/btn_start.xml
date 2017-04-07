@@ -4,7 +4,7 @@
     android:id="@+id/activity_welcome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/guide_4"
+    android:background="@mipmap/guide_4"
     tools:context="com.example.administrator.news.WelcomeActivity">
 
 
