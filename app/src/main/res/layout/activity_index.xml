@@ -5,7 +5,7 @@
     android:background="@mipmap/index"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.administrator.news.IndexActivity">
+    tools:context="com.crc.news.newsgy.IndexActivity">
 
     <!--<Button-->
     <!--android:id="@+id/abc"-->

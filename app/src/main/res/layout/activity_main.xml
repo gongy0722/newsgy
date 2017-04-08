@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.administrator.news.MainActivity">
+    tools:context="com.crc.news.newsgy.MainActivity">
 
-    <TextView
+    <com.crc.news.view.NoScrollViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:text="央视新闻"
-        android:gravity="center_horizontal"/>
+        android:layout_weight="1"
+        android:layout_height="0dp">
+        <!-- 动态加载布局文件 -->
+    </com.crc.news.view.NoScrollViewPager>
 
     <ListView
         android:id="@+id/news"
@@ -22,35 +23,36 @@
     </ListView>
     <!-- RadioGroup:才能被单选 -->
     <RadioGroup
+        android:id="@+id/rgGroug"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <!-- 因为同一时间是能有一个按钮被选中,因此建议使用Radio -->
         <RadioButton
-            style="@style/btnStyle"
+            android:id="@+id/rbHome"
+            style="@style/MainButton"
             android:drawableTop="@drawable/menu_home_btn_selector"
-            android:text="首页"
-            android:textSize="10sp"/>
+            android:text="首页"/>
         <RadioButton
-            style="@style/btnStyle"
+            android:id="@+id/rbTime"
+            style="@style/MainButton"
             android:drawableTop="@drawable/menu_time_btn_selector"
-            android:text="时间链"
-            android:textSize="10sp" />
+            android:text="时间链" />
         <RadioButton
-            style="@style/btnStyle"
+            android:id="@+id/rbTv"
+            style="@style/MainButton"
             android:drawableTop="@drawable/menu_tv_btn_selector"
-            android:text="电视+"
-            android:textSize="10sp" />
+            android:text="电视+"/>
         <RadioButton
-            style="@style/btnStyle"
+            android:id="@+id/rbFind"
+            style="@style/MainButton"
             android:drawableTop="@drawable/menu_find_btn_selector"
-            android:text="发现"
-            android:textSize="10sp" />
+            android:text="发现" />
         <RadioButton
-            style="@style/btnStyle"
+            android:id="@+id/rbMe"
+            style="@style/MainButton"
             android:drawableTop="@drawable/menu_me_btn_selector"
-            android:text="我"
-            android:textSize="10sp" />
+            android:text="我" />
     </RadioGroup>
 
 </LinearLayout>

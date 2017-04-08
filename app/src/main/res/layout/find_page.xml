@@ -4,15 +4,13 @@
     android:id="@+id/activity_welcome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/guide_4"
     tools:context="com.crc.news.newsgy.WelcomeActivity">
 
 
-    <Button
-        android:onClick="startMainActivity"
-        style="@style/WelcomeButton"
-        android:padding="10dp"
-        android:text="开始体验"
-        android:textColor="#fff" />
+    <TextView
+        android:text="发现"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </RelativeLayout>
