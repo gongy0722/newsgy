@@ -2,15 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.crc.news.newsgy">
 
-    +    <!--
+    <!--
          单击按钮实现:
-             1：最后一张Page其实是一个布局文件(按钮在布局文件中)
-             2: selector修改按钮的背景样式(1一个像素的png图片)
-
-         单击按钮实现跳转:
              1：按钮跳转到MainActivity
              2: 创建SharePreUtils工具类操作xml文件
-+    -->
+    -->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"

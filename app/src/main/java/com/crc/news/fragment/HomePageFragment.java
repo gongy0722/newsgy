@@ -3,6 +3,7 @@ package com.crc.news.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ public class HomePageFragment extends Fragment {
     @Nullable
     @Override  // 每个Fragment都有自己的XML配置文件
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Log.i("crc",this.getClass() + "---->2: onCreateView");
         return x.view().inject(this,inflater,null);
 //        return View.inflate(this.getActivity(), R.layout.home_page,null);
     }

@@ -88,8 +88,8 @@ public class WelcomeActivity extends Activity {
         ll.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                Log.i("jxy", "onGlobalLayout........");
-                Log.i("jxy", "0point:" + ll.getChildAt(0).getLeft() + ",1point:" + ll.getChildAt(1).getLeft());
+                Log.i("crc", "onGlobalLayout........");
+                Log.i("crc", "0point:" + ll.getChildAt(0).getLeft() + ",1point:" + ll.getChildAt(1).getLeft());
                 pointMoveWidth = ll.getChildAt(1).getLeft() - ll.getChildAt(0).getLeft();
                 ll.getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
